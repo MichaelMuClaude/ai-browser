@@ -1,0 +1,15 @@
+[Unit]
+Description=AI Browser HTTP Service
+After=graphical-session.target network.target
+
+[Service]
+Type=simple
+WorkingDirectory={{PROJECT_DIR}}
+EnvironmentFile={{ENV_FILE}}
+ExecStart={{PYTHON_BIN}} -m src.main server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target
+
